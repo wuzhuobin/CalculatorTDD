@@ -1,3 +1,5 @@
+#include "Calculator.hpp"
+
 // gtest
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>

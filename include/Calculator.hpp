@@ -5,7 +5,7 @@
 #include <string>
 class Calculator {
 public:
-  int cal(const std::string &input) { return 1; }
+  int cal(const std::string &input);
 };
 
 #endif // CALCULATOR_HPP

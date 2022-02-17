@@ -5,14 +5,28 @@
 #include <gtest/gtest.h>
 
 // std
+#include <memory>
 #include <string>
 using namespace ::testing;
 
-TEST(CalculatorTest, cal_ShouldReturn1_WhenInputIs1) {
+class CalculatorTest : public Test {
+public:
+  Calculator calculator;
+
+  // Alternative
+  /*******************************************************************************
+    std::unique_ptr<Calculator> calculator;
+
+  protected:
+
+    void SetUp() override { calculator = std::make_unique<Calculator>(); }
+  *******************************************************************************/
+};
+
+TEST_F(CalculatorTest, cal_ShouldReturn1_WhenInputIs1) {
 
   // Arrange
   auto aNumber = "1";
-  Calculator calculator;
 
   // Act
   auto result = calculator.cal(aNumber);
@@ -21,11 +35,10 @@ TEST(CalculatorTest, cal_ShouldReturn1_WhenInputIs1) {
   EXPECT_EQ(result, 1);
 }
 
-TEST(CalculatorTest, cal_ShouldReturnTheSameNumber_WhenInputIsANumber) {
+TEST_F(CalculatorTest, cal_ShouldReturnTheSameNumber_WhenInputIsANumber) {
 
   // Arrange
   auto aNumber = "123";
-  Calculator calculator;
 
   // Act
   auto result = calculator.cal(aNumber);
